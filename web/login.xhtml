@@ -13,27 +13,35 @@
     </h:head>
     <h:body>
         <h:form>
+            <p:messages autoUpdate="true"/>
             <p:panel header="Iniciar Sesión" class="margin_panel ui-md-6 login">
-                <div class="ui-g ui-fluid">
-    <div class="ui-g-12 ui-md-12">
-        <div class="ui-inputgroup">
-            <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
-            <p:inputText placeholder="Nombre de usuario" />      
-        </div>
-    </div>                    
-</div>
+               
+                
                 <div class="ui-g ui-fluid">
                     <div class="ui-g-12 ui-md-12">
-        <div class="ui-inputgroup">
-            <span class="ui-inputgroup-addon"><i class="fa fa-unlock-alt"></i></span>
-            <p:inputText placeholder="Contraseña" />   
-        </div>
-    </div>
-                    
-        </div>
-                 <p:separator />
+                        <div class="ui-inputgroup">
+                            <p:outputLabel for="txtUsuario" value="Usuario" />
+                            <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+                            
+                            <p:inputText id="txtUsuario" placeholder="Nombre de usuario" value="#{indexController.empleado.users}" required="true" />      
+                        </div>
+                    </div>                    
+                </div>
+                
+                
                 <div class="ui-g ui-fluid">
-                                    <p:commandButton value="Iniciar Sesión"  icon="fa fa-check"/>
+                    <div class="ui-g-12 ui-md-12">
+                        <div class="ui-inputgroup">
+                            <p:outputLabel for="txtPasswd" value="Contraseña" />
+                            <span class="ui-inputgroup-addon"><i class="fa fa-unlock-alt"></i></span>
+                            <p:password id="txtPasswd" placeholder="Contraseña" value="#{indexController.empleado.passwd}" required="true"/>   
+                        </div>
+                    </div>
+
+                </div>
+                <p:separator />
+                <div class="ui-g ui-fluid">
+                    <p:commandButton value="Iniciar Sesión" action="#{indexController.iniciarSesion()}"  icon="fa fa-check"/>
 
                 </div>
             </p:panel>  
